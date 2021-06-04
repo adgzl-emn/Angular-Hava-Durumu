@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="medium">
+    <ion-title>
+      Havaa Durumu
+    </ion-title>
+   <ion-buttons slot="end">
+   <ion-button (click) ="konumGoster()">
+    <ion-icon class="aramaButton" slot="icon-only" name="search-circle-outline"></ion-icon>
+   </ion-button>
+   </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-item color="success" class="topArea">
+      
+      <img class="havaicon" *ngIf="current" src="{{iconuri}}{{current.weather[0].icon}}.png" alt="">
+      <h1 *ngIf="current" > {{ current.main.temp }} &#8451;</h1>
+      <div slot="end">
+    <h2 *ngIf="current">{{ current.name }}</h2>
+         <h2>Turkiye</h2>
+  </div>
+  </ion-item>
+  
+  <ion-card>
+    <ion-img src="assets/istanbul.jpg"></ion-img>
+    
+    <h5>İSTANBUL</h5>
+    <h1 *ngIf="istanbul" > {{ istanbul.main.temp }} &#8451;</h1> <!-- temp de karakter olmaz! -->
+   <!-- <ion-icon name="sunny-outline"></ion-icon>  -->
+    <img class="havaicon" *ngIf="istanbul" src="{{iconuri}}{{istanbul.weather[0].icon}}.png" alt="">
+    <ion-label *ngIf="istanbul">{{ istanbul.weather[0].description | titlecase }}</ion-label>
+  </ion-card>
+
+  <ion-card>
+    <ion-img src="assets/izmir.jpg"></ion-img>
+    <h5>İZMİR</h5>
+    <h1 *ngIf="izmir"> {{ izmir.main.temp }} &#8451; </h1>
+    <img class="havaicon" *ngIf="izmir" src="{{iconuri}}{{izmir.weather[0].icon}}.png" alt="">
+    <ion-label *ngIf="izmir">{{ izmir.weather[0].description | titlecase }}</ion-label>
+  </ion-card>
+  
+   <ion-card>
+    <ion-img src="assets/ankara.jpg"></ion-img>
+    <h5>ANKARA</h5>
+    <h1 *ngIf="ankara">{{ ankara.main.temp }} &#8451; </h1>
+    <img class="havaicon" *ngIf="ankara" src="{{iconuri}}{{izmir.weather[0].icon}}.png" alt="">
+    <ion-label *ngIf="ankara"> {{ ankara.weather[0].description | titlecase }}</ion-label>
+  </ion-card>
+
+  
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">developer</ion-title>
+  </ion-toolbar>
+</ion-footer>
